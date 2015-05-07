@@ -45,7 +45,7 @@ export NAME=#NAME#
 set +x
 set +e 
 . $EXT_DIR/_init.sh
-echo \"${label_color}Hello World! Hello ${red}${NAME}!${no_color}\"
+echo -e \"${label_color}Hello World! Hello ${red}${NAME}!${no_color}\"
 /bin/bash -e #COMMAND#"
     }
     },
