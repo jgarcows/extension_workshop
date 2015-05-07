@@ -1,5 +1,5 @@
 {
-    "id": "ibm.devops.services.pipeline.appscan.static.builder",
+    "id": "ibm.devops.services.pipeline.workshop.extension.hello",
     "version": 1,
     "name_key": "ExtName",
     "desc_key": "ExtDesc",
@@ -13,54 +13,20 @@
     ],
     "params": [
         {
-            "name": "SETUP_SERVICE_SPACE",
+            "name": "NAME",
             "type": "Text",
             "required": "true",
-            "default_value": "false",
-            "label_key": "ACCEPT_KEY",
-            "desc_key": "ACCEPT_DESC"
-        },
-        {
-            "name": "SUBMISSION_NAME",
-            "type": "Text",
-            "required": "false",
-            "label_key": "SUBMISSION_NAME_KEY",
-            "desc_key": "SUBMISSION_NAME_DESC"
+            "default_value": "Jacob",
+            "label_key": "NAME_LABEL",
+            "desc_key": "NAME_DESCRIPTION"
         },
         {
             "name": "COMMAND",
             "type": "TextArea",
             "required": "true",
             "default_value" : "#!/bin/bash
-# The following colors have been defined to help with presentation of logs: green, red, label_color, no_color.  
-echo -e \"${label_color}Starting build script${no_color}\"
-
-# The CloudFoundry CLI (cf), Git client (git), IDS Inventory CLI (ids-inv), Python 2.7.3 (python), and Appscan (appscan.sh) have been installed.
-# Based on the organization and space selected in the Job, credentials are in place for IBM Bluemix 
-
-############################################
-# call python script to run appscan calls  #
-############################################
-
-if [ -f ${EXT_DIR}/appscan_check.py ]; then 
-    ${EXT_DIR}/appscan_check.py
-    RESULT=$?
-
-    if [ $RESULT -ne 0 ]; then
-        echo -e \"${red}Error running appscan ${no_color}\"
-        exit 1
-    else
-        echo -e \"${green}Application scan was successful ${no_color}\"
-    fi  
-else 
-    echo -e \"${red}Appscan helper script not available, failed.${no_color}\"
-    exit 1
-fi  
-
-########################################################################################
-# Copy any artifacts that will be needed for deployment and testing to $ARCHIVE_DIR    #
-########################################################################################
-cp appscan_result* ${ARCHIVE_DIR}/
+# You can enter any extra script you'd care to here.  NAME has been defined above
+echo \"Hello ${NAME}, I guess I should call this hello name and not world, huh?\"
 ",
             "label_key": "COMMAND_KEY",
             "desc_key": "COMMAND_DESC"
@@ -75,16 +41,14 @@ cp appscan_result* ${ARCHIVE_DIR}/
     "execution": {
         "type": "JenkinsDocker",
         "shell": "#!/bin/bash
-export SUBMISSION_NAME=#SUBMISSION_NAME#
-export SETUP_SERVICE_SPACE=#SETUP_SERVICE_SPACE#
+export NAME=#NAME#
 set +x
 set +e 
 . $EXT_DIR/_init.sh
-
+echo \"${label_color}Hello World! Hello ${red}${NAME}!${no_color}\"
 /bin/bash -e #COMMAND#"
     }
     },
-    "project": "https://hub.jazz.net/project/alchemy/Alchemy-Ostanes",
-    "project_example": "https://hub.jazz.net/pipeline/rjminsha/ice-pipeline_demo",
-    "project_contact": "rjminsha@us.ibm.com"
+    "project": "https://github.com/jgarcows/extension_workshop",
+    "project_contact": "jgarcows@us.ibm.com"
 }
