@@ -31,22 +31,17 @@
 set +x
 set +e
 echo \"Start of extension\"
-ls -la
-ls -la /bin/
-bash --help
-which bash
 
-env
+cat >> script.sh << '__EOF__'
+#COMMAND#
+__EOF__
 
-echo '#COMMAND#' > script.sh
+echo \"Content of script.sh\"
 
-chmod +x script.sh
+cat script.sh
+
 echo \"Starting commands now:\"
-/bin/bash -e script.sh
-
-echo Starting second attempts at commands:
-
-#COMMAND#"
+/bin/bash -e script.sh"
     }
     },
     "project": "https://github.com/jgarcows/extension_workshop",
