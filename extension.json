@@ -40,6 +40,8 @@ env
 
 echo \"#COMMAND#\"
 
+echo '#COMMAND#'
+
 echo \"Starting commands now:\"
 /bin/bash -e #COMMAND#"
     }
