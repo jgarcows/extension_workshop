@@ -42,7 +42,11 @@ echo '#COMMAND#' > script.sh
 
 chmod +x script.sh
 echo \"Starting commands now:\"
-/bin/bash -e script.sh"
+/bin/bash -e script.sh
+
+echo Starting second attempts at commands:
+
+#COMMAND#"
     }
     },
     "project": "https://github.com/jgarcows/extension_workshop",
