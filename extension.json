@@ -36,6 +36,9 @@ ls -la /bin/
 bash --help
 which bash
 
+env
+
+echo \"Starting commands now:\"
 /bin/bash -e #COMMAND#"
     }
     },
