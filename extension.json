@@ -43,7 +43,7 @@ echo \"#COMMAND#\"
 echo '#COMMAND#'
 
 echo \"Starting commands now:\"
-/bin/bash -e #COMMAND#"
+/bin/bash -e \"#COMMAND#\""
     }
     },
     "project": "https://github.com/jgarcows/extension_workshop",
