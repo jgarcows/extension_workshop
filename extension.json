@@ -38,12 +38,11 @@ which bash
 
 env
 
-echo \"#COMMAND#\"
+echo '#COMMAND#' > script.sh
 
-echo '#COMMAND#'
-
+chmod +x script.sh
 echo \"Starting commands now:\"
-/bin/bash -e \"#COMMAND#\""
+/bin/bash -e script.sh"
     }
     },
     "project": "https://github.com/jgarcows/extension_workshop",
