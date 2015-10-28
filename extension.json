@@ -30,6 +30,12 @@
         "shell": "#!/bin/bash
 set +x
 set +e
+echo \"Start of extension\"
+ls -la
+ls -la /bin/
+bash --help
+which bash
+
 /bin/bash -e #COMMAND#"
     }
     },
