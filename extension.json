@@ -38,6 +38,8 @@ which bash
 
 env
 
+echo \"#COMMAND#\"
+
 echo \"Starting commands now:\"
 /bin/bash -e #COMMAND#"
     }
