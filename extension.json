@@ -28,8 +28,7 @@
     "execution": {
         "type": "JenkinsDocker",
         "shell": "#!/bin/bash
-set +x
-set +e
+
 echo \"Start of extension\"
 
 cat >> script.sh << '__EOF__'
@@ -41,14 +40,7 @@ echo \"Content of script.sh\"
 cat script.sh
 
 echo \"Starting commands now:\"
-/bin/bash -e script.sh
-
-RC=$?
-
-echo \"script.sh returned $RC\"
-
-exit $RC
-"
+/bin/bash -e script.sh"
     }
     },
     "project": "https://github.com/jgarcows/extension_workshop",
