@@ -41,7 +41,14 @@ echo \"Content of script.sh\"
 cat script.sh
 
 echo \"Starting commands now:\"
-/bin/bash -e script.sh"
+/bin/bash -e script.sh
+
+RC=$?
+
+echo \"script.sh returned $RC\"
+
+exit $RC
+"
     }
     },
     "project": "https://github.com/jgarcows/extension_workshop",
